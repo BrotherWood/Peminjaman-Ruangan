@@ -15,7 +15,8 @@
 - Instal [XAMPP](https://www.apachefriends.org/index.html) terbaru
 - Pindahkan folder ke xampp/htdocs/
 - Rename Folder Menjadi PRuang
-- import pruang.sql dari PRuang/SqlDb ke dalam MySQL
+- `buat database di MySQL dengan nama pruang`
+- `import pruang.sql dari PRuang/SqlDb ke dalam MySQL`
 
 ## Usage
 
