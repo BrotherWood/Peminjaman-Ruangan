@@ -8,7 +8,7 @@ class User extends CI_Controller {
 
 		$data['title'] = "Sistem Peminjaman Ruangan";
 		$data['query'] = $this->db->get('Ruangan');
-
+		$data['namauser'] = $this->session->userdata('nama');
 		$this->load->view('template/header',$data);
 		$this->load->view('user/template/sidebar');
 		$this->load->view('user/template/topbar');
@@ -21,7 +21,7 @@ class User extends CI_Controller {
 
 		$data['title'] = "Sistem Peminjaman Ruangan";
 		$data['query'] = $this->db->get('Ruangan');
-
+		$data['namauser'] = $this->session->userdata('nama');
 		$this->load->view('template/header', $data);
 		$this->load->view('user/template/sidebarUser');
 		$this->load->view('user/template/topbar');
@@ -34,18 +34,18 @@ class User extends CI_Controller {
 
 		$data['title'] = "Sistem Peminjaman Ruangan";
 		$data['query'] = $this->db->get('Ruangan');
-
+		$data['namauser'] = $this->session->userdata('nama');
 		$this->load->view('template/header', $data);
 		$this->load->view('user/template/sidebar');
 		$this->load->view('user/template/topbar');
-		$this->load->view('user/daftarRuang');
+		$this->load->view('user/daftarRuangAdmin');
 		$this->load->view('user/template/footer');
 	}
 	//mahasiswa
 	public function pinjam_ruangan(){
 		$data['title'] = "Sistem Peminjaman Ruangan";
 		$data['query'] = $this->db->get('Ruangan');
-		
+		$data['namauser'] = $this->session->userdata('nama');
 		$this->load->view('template/header',$data);
 		$this->load->view('user/template/sidebarUser');
 		$this->load->view('user/template/topbar');
@@ -56,7 +56,7 @@ class User extends CI_Controller {
 	public function histori()
 	{
 		$data['title'] = "Sistem Peminjaman Ruangan";
-		
+		$data['namauser'] = $this->session->userdata('nama');
 
 
 		$data['query']=$this->db->query( 'SELECT user.nama as nama, ruangan.nama_ruangan as ruangan, pinjam.id_pinjam as id ,
@@ -77,7 +77,7 @@ class User extends CI_Controller {
 	public function histori_user()
 	{
 		$data['title'] = "Sistem Peminjaman Ruangan";
-
+		$data['namauser'] = $this->session->userdata('nama');
 		$this->db->select('r.nama_ruangan as nama, r.kode_ruangan as kode, p.tanggal as tanggal, p.alasan,p.status as status');
 		$this->db->from('user as u, ruangan as r, pinjam as p');
 		$this->db->where('p.user_id', $this->session->userdata('id'));
@@ -120,7 +120,7 @@ class User extends CI_Controller {
 		$data['title'] = "Sistem Peminjaman Ruangan";
  		$data['query'] = $this->db->get_where('Ruangan', array('id' => $query));
 		$data['user']  = $this->db->get_where('user',['nama'=>$this->session->userdata('nama')])->row_array();
-		
+		$data['namauser'] = $this->session->userdata('nama');
 		 $this->load->view('template/header', $data);
 		$this->load->view('user/template/sidebarUser');
 		$this->load->view('user/template/topbar');
@@ -171,7 +171,7 @@ class User extends CI_Controller {
 		$data['title'] = "Sistem Peminjaman Ruangan";
 		$data['query'] = $this->db->get()->row();
 
-
+		$data['namauser'] = $this->session->userdata('nama');
 		$this->load->view('template/header', $data);
 		$this->load->view('user/template/sidebar');
 		$this->load->view('user/template/topbar');
